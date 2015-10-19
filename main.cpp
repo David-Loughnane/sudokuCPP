@@ -1,3 +1,7 @@
+// MCS Lab1 - C++1
+// Author David Loughnane - dl4415
+// Modified October 19th 2015
+
 #include <iostream>
 #include <cstdio>
 #include "sudoku.h"
