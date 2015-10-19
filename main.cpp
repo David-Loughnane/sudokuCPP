@@ -21,7 +21,7 @@ int main() {
   cout << endl << "Displaying Sudoku board with display_board():" << endl;
   display_board(board);
   cout << "Done!" << endl << endl;
-
+  
   cout << "====================== Question 1 ======================" << endl << endl;
 
   load_board("easy.dat", board);
@@ -35,7 +35,7 @@ int main() {
   if (!is_complete(board))
     cout << "NOT ";
   cout << "complete." << endl << endl;
-
+  /*
   cout << "====================== Question 2 ======================" << endl << endl;
 
   load_board("easy.dat", board);
@@ -81,6 +81,6 @@ int main() {
   cout << "====================== Question 5 ======================" << endl << endl;
 
 	// write more tests
-
+	*/
   return 0;
 }
