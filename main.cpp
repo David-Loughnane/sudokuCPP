@@ -1,6 +1,7 @@
 // MCS Lab1 - C++1
 // Author David Loughnane - dl4415
-// Modified October 19th 2015
+// Created October 19th 2015
+// Last Modified October 27th 2015
 
 #include <iostream>
 #include <cstdio>
@@ -13,17 +14,17 @@ int main() {
   char board[9][9];
 
   /* This section illustrates the use of the pre-supplied helper functions. */
-  cout << "============== Pre-supplied functions ==================" << endl << endl;
+  /* cout << "============== Pre-supplied functions ==================" << endl << endl;
 
   cout << "Calling load_board():" << endl;
   load_board("easy.dat", board);
 
   cout << endl << "Displaying Sudoku board with display_board():" << endl;
   display_board(board);
-  cout << "Done!" << endl << endl;
-  
+  cout << "Done!" << endl << endl;*/
+ 
   cout << "====================== Question 1 ======================" << endl << endl;
-
+  
   load_board("easy.dat", board);
   cout << "Board is ";
   if (!is_complete(board))
@@ -34,21 +35,21 @@ int main() {
   cout << "Board is ";
   if (!is_complete(board))
     cout << "NOT ";
-  cout << "complete." << endl << endl;
-  /*
+    cout << "complete." << endl << endl;
+  
   cout << "====================== Question 2 ======================" << endl << endl;
-
+  
   load_board("easy.dat", board);
-
+  
   // Should be OK
   cout << "Putting '1' into I8 is ";
   if (!make_move("I8", '1', board)) 
     cout << "NOT ";
   cout << "a valid move. The board is:" << endl;
   display_board(board);
-
-	// write more tests
-
+  
+  // write more tests
+  
   cout << "====================== Question 3 ======================" << endl << endl;
 
   load_board("easy.dat", board);
@@ -56,9 +57,10 @@ int main() {
     cout << "Save board to 'easy-copy.dat' successful." << endl;
   else
     cout << "Save board failed." << endl;
-  cout << endl;
+    cout << endl;
+  /*
+cout << "====================== Question 4 ======================" << endl << endl;
 
-  cout << "====================== Question 4 ======================" << endl << endl;
 
   load_board("easy.dat", board);
   if (solve_board(board)) {
@@ -66,7 +68,8 @@ int main() {
     display_board(board);
   } else 
     cout << "A solution cannot be found." << endl;
-  cout << endl;
+  display_board(board); //DL_CODE
+    cout << endl;
 
   load_board("medium.dat", board);
   if (solve_board(board)) {
@@ -75,12 +78,12 @@ int main() {
   } else 
     cout << "A solution cannot be found." << endl;
   cout << endl;
+      */
+	// write more tests
+  
+    /*  cout << "====================== Question 5 ======================" << endl << endl;
 
 	// write more tests
-
-  cout << "====================== Question 5 ======================" << endl << endl;
-
-	// write more tests
-	*/
+	*/	
   return 0;
 }
