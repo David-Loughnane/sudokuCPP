@@ -154,19 +154,19 @@ bool solve_board(char board[9][9]) {
   char position[2];
   for (position[0] = 'A'; position[0] <= 'I'; position[0]++) {
      for (position[1] = '1'; position[1] <= '9'; position[1]++) {
-       if (board[(position[0]-65)][(position[1]-49)] != '.')
-		 continue;
+         if (board[(position[0]-65)][(position[1]-49)] != '.') // if the current cell is not blank skip over it
+	   continue;
        for (char guess = '1'; guess <= '9'; guess++) {
-	 if (make_move(position, guess, board)) {
-	   if(solve_board(board)) {
-	     return 1;
+	 if (make_move(position, guess, board)) { // test if the guess is valid
+	   if(solve_board(board)) { //recursive call of function to move onto next empty cell
+	     return 1; 
 	   }
 	 }
-	 board[(position[0]-65)][(position[1]-49)] = '.';
+	 board[(position[0]-65)][(position[1]-49)] = '.'; // if we have iterated though all the guess    
        }
-       return 0;
+       return 0; // indicates that no guess are correct, recursive call returns 0, cell is set to '.' and guess loop continues
      }
-  }
-  return 1;
+  }  
+  return 1; // if flow of control reaches the end we have iterated through whole board.
 }
 
