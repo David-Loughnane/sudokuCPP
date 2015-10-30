@@ -76,18 +76,18 @@ void display_board(const char board[9][9]) {
 bool is_complete(const char board[9][9]) {
   for (int row = 0; row < 9; row++) {
     for (int col = 0; col < 9; col++) {
-      if (!isdigit(board[row][col]) && board[row][col] != '0')
-	return 0;
+      if (isdigit(board[row][col]) && board[row][col] != '0')
+	return 1;
     }
   }
-  return 1;
+  return 0;
 }
 
 
 //function tests if digit is valid at position on the given board
-bool make_move(const char position[3], char digit, char board[9][9]) {
+bool make_move(const char position[2], char digit, char board[9][9]) {
   int row_try, col_try;
-  row_try = position[0] - 65; // ASCII capitalised letter char converted to int, from 0 
+  row_try = position[0] - 65; // ASCII capitalised letter char converted to int, from 0
   col_try = position[1] - 49; // ASCII number char converted to int, from 0
 
   // test if position within board range
@@ -130,7 +130,6 @@ bool make_move(const char position[3], char digit, char board[9][9]) {
 }
 
 
-
 bool save_board(const char *filename, char board[9][9]) {
   ofstream output_file;
   output_file.open(filename);
@@ -150,36 +149,24 @@ bool save_board(const char *filename, char board[9][9]) {
   }
 }
 
-/*
 
 bool solve_board(char board[9][9]) {
-  for (int row = 0; row < 9; row++) {
-     for (int col = 0; col < 9; col++) {
-       int count = 0;
-       for (int guess = '1'; guess <= '9'; guess++) {
-	  char position[3];
-	  position[0] = row + 65;//convert int to char
-	  position[1] = col + 49;
-	  int valid_row, valid_col;
-	  if(valid_move(position, guess, board)) {//count possible values for that position
-	    valid_row = row;
-	    valid_col = col;
-	    count++;
-	  }
-	  if (guess == '9') { // if last possible guess
-	    cout << "row:" << valid_row  << " col:" << valid_col << " guess:" << guess << " count:" << count << endl;
-	    //board[i][j] = guess;
-	  }
+  char position[2];
+  for (position[0] = 'A'; position[0] <= 'I'; position[0]++) {
+     for (position[1] = '1'; position[1] <= '9'; position[1]++) {
+       if (board[(position[0]-65)][(position[1]-49)] != '.')
+		 continue;
+       for (char guess = '1'; guess <= '9'; guess++) {
+	 if (make_move(position, guess, board)) {
+	   if(solve_board(board)) {
+	     return 1;
+	   }
+	 }
+	 board[(position[0]-65)][(position[1]-49)] = '.';
        }
+       return 0;
      }
   }
-  display_board(board);
-  if (is_complete(board)) {
-    return 1;
-  }
-  else {bool valid_move(const char position[3], char digit, char board[9][9]);
-      return 0;
-  }
+  return 1;
 }
-*/
 

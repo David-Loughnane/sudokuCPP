@@ -1,7 +1,7 @@
 // MCS Lab1 - C++1
 // Author David Loughnane - dl4415
 // Created October 19th 2015
-// Last Modified October 27th 2015
+// Last Modified October 30th 2015
 
 #include <iostream>
 #include <cstdio>
@@ -23,7 +23,7 @@ int main() {
   display_board(board);
   cout << "Done!" << endl << endl;*/
  
-  cout << "====================== Question 1 ======================" << endl << endl;
+  /*cout << "====================== Question 1 ======================" << endl << endl;
   
   load_board("easy.dat", board);
   cout << "Board is ";
@@ -35,9 +35,9 @@ int main() {
   cout << "Board is ";
   if (!is_complete(board))
     cout << "NOT ";
-    cout << "complete." << endl << endl;
+    cout << "complete." << endl << endl;*/
   
-  cout << "====================== Question 2 ======================" << endl << endl;
+  /*cout << "====================== Question 2 ======================" << endl << endl;
   
   load_board("easy.dat", board);
   
@@ -46,31 +46,34 @@ int main() {
   if (!make_move("I8", '1', board)) 
     cout << "NOT ";
   cout << "a valid move. The board is:" << endl;
-  display_board(board);
+  display_board(board);*/
   
   // write more tests
   
-  cout << "====================== Question 3 ======================" << endl << endl;
+  /*cout << "====================== Question 3 ======================" << endl << endl;
 
   load_board("easy.dat", board);
   if (save_board("easy-copy.dat", board))
     cout << "Save board to 'easy-copy.dat' successful." << endl;
   else
     cout << "Save board failed." << endl;
-    cout << endl;
-  /*
-cout << "====================== Question 4 ======================" << endl << endl;
+    cout << endl;*/
+  
+  cout << "====================== Question 4 ======================" << endl << endl;
 
 
-  load_board("easy.dat", board);
-  if (solve_board(board)) {
+  /*CHOOSING VALID BUT NOT CORRECT VALUES*/
+
+  load_board("easy.dat",board);
+    if (solve_board(board)) {
     cout << "The 'easy' board has a solution:" << endl;
     display_board(board);
-  } else 
+  } else {
     cout << "A solution cannot be found." << endl;
-  display_board(board); //DL_CODE
+    display_board(board); //DL_CODE
     cout << endl;
-
+    }
+    
   load_board("medium.dat", board);
   if (solve_board(board)) {
     cout << "The 'medium' board has a solution:" << endl;
@@ -78,7 +81,31 @@ cout << "====================== Question 4 ======================" << endl << en
   } else 
     cout << "A solution cannot be found." << endl;
   cout << endl;
-      */
+
+  load_board("mystery1.dat", board);
+  if (solve_board(board)) {
+    cout << "The 1st mystery board has a solution:" << endl;
+    display_board(board);
+  } else 
+    cout << "A solution cannot be found." << endl;
+  cout << endl;
+
+  load_board("mystery2.dat", board);
+  if (solve_board(board)) {
+    cout << "The 2nd mystery board has a solution:" << endl;
+    display_board(board);
+  } else 
+    cout << "A solution cannot be found." << endl;
+  cout << endl;
+
+  load_board("mystery3.dat", board);
+  if (solve_board(board)) {
+    cout << "The 3rd mystery board has a solution:" << endl;
+    display_board(board);
+  } else 
+    cout << "A solution cannot be found." << endl;
+  cout << endl;
+ 
 	// write more tests
   
     /*  cout << "====================== Question 5 ======================" << endl << endl;
@@ -86,4 +113,6 @@ cout << "====================== Question 4 ======================" << endl << en
 	// write more tests
 	*/	
   return 0;
+
+
 }
