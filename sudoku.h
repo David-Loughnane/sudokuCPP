@@ -24,8 +24,8 @@ bool make_move(const char position[2], char digit, char board[9][9]);
 bool save_board(const char *filename, char board[9][9]);
 
 //attempts to fill board with valid digits to complete sudoku
-//returns true if a solution can be found
-//returns false if no solution can be found
+//returns true if a solution can be found, and board completed
+//returns false if no solution can be found, and board not modifed
 bool solve_board(char board[9][9]);
 
 #endif
