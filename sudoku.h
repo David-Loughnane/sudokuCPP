@@ -1,7 +1,11 @@
 #ifndef SUDOKU_H
 #define SUDOKU_H
 
+
+//reads from file named filename, and assigns value to 2 dimensional character array
 void load_board(const char *filename, char board[9][9]);
+
+//prints sudoku board to screen
 void display_board(const char board[9][9]);
 
 //test if board contains characters '1' to '9' at all positions

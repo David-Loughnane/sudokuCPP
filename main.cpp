@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <cstdio>
+#include <ctime>
 #include "sudoku.h"
 
 using namespace std;
@@ -23,7 +24,7 @@ int main() {
   display_board(board);
   cout << "Done!" << endl << endl;*/
  
-  /*cout << "====================== Question 1 ======================" << endl << endl;
+  cout << "====================== Question 1 ======================" << endl << endl;
   
   load_board("easy.dat", board);
   cout << "Board is ";
@@ -35,9 +36,9 @@ int main() {
   cout << "Board is ";
   if (!is_complete(board))
     cout << "NOT ";
-    cout << "complete." << endl << endl;*/
+    cout << "complete." << endl << endl;
   
-  /*cout << "====================== Question 2 ======================" << endl << endl;
+  cout << "====================== Question 2 ======================" << endl << endl;
   
   load_board("easy.dat", board);
   
@@ -46,33 +47,29 @@ int main() {
   if (!make_move("I8", '1', board)) 
     cout << "NOT ";
   cout << "a valid move. The board is:" << endl;
-  display_board(board);*/
+  display_board(board);
   
   // write more tests
   
-  /*cout << "====================== Question 3 ======================" << endl << endl;
+  cout << "====================== Question 3 ======================" << endl << endl;
 
   load_board("easy.dat", board);
   if (save_board("easy-copy.dat", board))
     cout << "Save board to 'easy-copy.dat' successful." << endl;
   else
     cout << "Save board failed." << endl;
-    cout << endl;*/
+    cout << endl;
   
   cout << "====================== Question 4 ======================" << endl << endl;
-
-
-  /*CHOOSING VALID BUT NOT CORRECT VALUES*/
 
   load_board("easy.dat",board);
     if (solve_board(board)) {
     cout << "The 'easy' board has a solution:" << endl;
     display_board(board);
-  } else {
-    cout << "A solution cannot be found." << endl;
-    display_board(board); //DL_CODE
+  } else 
+      cout << "A solution cannot be found." << endl;
     cout << endl;
-    }
+    
     
   load_board("medium.dat", board);
   if (solve_board(board)) {
@@ -105,14 +102,29 @@ int main() {
   } else 
     cout << "A solution cannot be found." << endl;
   cout << endl;
- 
-	// write more tests
   
-    /*  cout << "====================== Question 5 ======================" << endl << endl;
+  cout << "====================== Question 5 ======================" << endl << endl;
 
-	// write more tests
-	*/	
+  clock_t begin, end;
+  double execution_secs;
+
+  load_board("mystery1.dat",board);
+  begin = clock();
+  solve_board(board);
+  end = clock();
+
+  execution_secs = double(end - begin) / CLOCKS_PER_SEC;
+  cout << "The execution time for mystery1.dat is " << execution_secs << " seconds" << endl;
+  cout << endl;
+
+  load_board("mystery3.dat",board);
+  begin = clock();
+  solve_board(board);
+  end = clock();
+
+  execution_secs = double(end - begin) / CLOCKS_PER_SEC;
+  cout << "The execution time for mystery3.dat is " << execution_secs << " seconds" << endl;
+  cout << endl;
+		
   return 0;
-
-
 }
