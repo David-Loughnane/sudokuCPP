@@ -83,11 +83,13 @@ bool is_complete(const char board[9][9]) {
 
 bool make_move(const char position[2], char digit, char board[9][9]) {
   int row_try, col_try;
+  // convert char values to corresponding array elements
   row_try = position[0] - 65;
   col_try = position[1] - 49;
 
   // test position within board range
   if ((row_try < 0 || row_try > 8) || (col_try < 0 || col_try > 8)) {
+    cout << "Position is not within range of board" << endl;
     return 0;
   }
 
@@ -118,7 +120,7 @@ bool make_move(const char position[2], char digit, char board[9][9]) {
 	}
     }
   }
-
+  //if digit is valid update element in array
   board[row_try][col_try] = digit;
   return 1;
 }
@@ -138,6 +140,7 @@ bool save_board(const char *filename, char board[9][9]) {
     return 1;
   }
   else {
+    cout << "Error in opening file!!" << endl;
     return 0;
   }
 }
@@ -151,11 +154,12 @@ bool solve_board(char board[9][9]) {
 	   continue;
        }
        for (char guess = '1'; guess <= '9'; guess++) {
-	 if (make_move(position, guess, board)) { // test if the guess is valid
+	 if (make_move(position, guess, board)) {
 	   if(solve_board(board)) {
 	     return 1;
 	   }
 	 }
+	 //
 	 board[(position[0]-65)][(position[1]-49)] = '.';
        }
        return 0;

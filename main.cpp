@@ -1,7 +1,6 @@
 // MCS Lab1 - C++1
 // Author David Loughnane - dl4415
 // Created October 19th 2015
-// Last Modified October 30th 2015
 
 #include <iostream>
 #include <cstdio>
