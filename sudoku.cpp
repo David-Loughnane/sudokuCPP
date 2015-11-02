@@ -71,8 +71,6 @@ void display_board(const char board[9][9]) {
 
 /* add your functions here */
 
-
-//function tests to see if the board contains numbers 1-9 in all positions
 bool is_complete(const char board[9][9]) {
   for (int row = 0; row < 9; row++) {
     for (int col = 0; col < 9; col++) {
