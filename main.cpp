@@ -27,15 +27,17 @@ int main() {
   
   load_board("easy.dat", board);
   cout << "Board is ";
-  if (!is_complete(board))
+  if (!is_complete(board)) {
     cout << "NOT ";
+  }
   cout << "complete." << endl << endl;
 
   load_board("easy-solution.dat", board);
   cout << "Board is ";
-  if (!is_complete(board))
+  if (!is_complete(board)) {
     cout << "NOT ";
-    cout << "complete." << endl << endl;
+  }
+  cout << "complete." << endl << endl;
   
   cout << "====================== Question 2 ======================" << endl << endl;
   
